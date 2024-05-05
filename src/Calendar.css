@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+.calendar-container {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .react-calendar__navigation__label__labelText {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px; /* Adjust the font size for the month */
+  }
+  
+  .react-calendar__navigation {
+    font-family: 'Inter', sans-serif;
+    background-color: #c3e1a5; /* Set background color */
+    color: #333; /* Set text color */
+  }
+
+  .calendar-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    color: #333;
+  }
+  
+  .calendar-wrapper {
+    font-family: 'Inter', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .custom-calendar {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  /*
+  color of today's calendar tile
+  */
+  .react-calendar__tile--now {
+    background-color: orange; /* Change the background color to orange, or any other color you prefer */
+    color: white; /* Change the text color to white for better contrast */
+  }
+  
+  /*-
+  color of 
+  selected calendar tile
+  */
+  .react-calendar__tile--active {
+    background-color: #176c3d !important;
+    color: #fff; /* Change the text color to white for better contrast */
+  }

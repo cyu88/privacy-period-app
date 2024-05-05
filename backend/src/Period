@@ -1,0 +1,25 @@
+class Period:
+    def __init__(self, start_date, end_date=None, flow_intensity=None, symptoms=None, mood=None, energy_level=None, notes=None):
+        self.start_date = start_date
+        self.end_date = end_date
+        self.duration = (end_date - start_date).days + 1 if end_date else None
+        self.symptoms = symptoms if symptoms is not None else []
+        self.notes = notes
+        self.ongoing = True if not end_date else False
+
+    def end_period(self, end_date):
+        self.end_date = end_date
+        self.duration = (end_date - self.start_date).days + 1
+        self.ongoing = False
+
+    def is_ongoing(self):
+        return self.ongoing
+
+    def get_duration(self):
+        return self.duration
+
+    def add_symptom(self, symptom):
+        self.symptoms.append(symptom)
+
+    def add_notes(self, notes):
+        self.notes = notes
