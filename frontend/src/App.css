@@ -24,6 +24,13 @@
   color: white;
 }
 
+.App-title {
+  color: white;
+  font-size: 80px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +42,36 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  position: relative;
+  background-image: url('../images/blobs2.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+.welcome {
+  color: white;
+  /* margin-left: 20px; */
+  text-align: center
+}
+
+
+.welcome-container {
+  color: white;
+  /* margin-left: 20px; */
+  text-align: center
+}
+
+.bubble {
+  background-color: #8661C1;
+  color: white;
+  margin-top: 50px;
+  padding: 20px 70px;
+  border-radius: 50% / 70% 80% 70% 80%;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  display: inline-block;
 }

@@ -1,0 +1,95 @@
+
+class User:
+    '''
+    Represents a user of the app.
+
+    Attributes:
+        user_id (str): The username of the user.
+        goal: The goal of the user (i.e. to get pregnant, contraception, etc.)
+        cycle_length (int): The average length of the user's menstrual cycle.
+        period_length (int): The average length of the user's menstrual period.
+        period_history (list): A list to store the start dates of the user's periods.
+
+        [for the chat forum]
+        comments (list): A list of comments made by the user.
+        saved_posts (list): A list of posts saved by the user.
+
+    '''
+
+    class User:
+    def __init__(self, username, goal=None, cycle_length=None, period_length=None, period_history=None):
+        self.username = username
+        self.goal = goal
+        self.cycle_length = cycle_length
+        self.period_length = period_length
+        self.period_history = []
+        self.comments = []
+        self.saved_posts = []
+
+    def add_period(self, start_date, end_date=None, flow_intensity=None, symptoms=None, mood=None, energy_level=None, notes=None):
+        period = Period(start_date, end_date, flow_intensity, symptoms, mood, energy_level, notes)
+        self.periods.append(period)
+
+    def get_periods(self):
+        return self.periods
+
+    def get_latest_period(self):
+        if self.periods:
+            return self.periods[-1]
+        else:
+            return None
+
+    def get_period_by_date(self, date):
+        for period in self.periods:
+            if period.start_date <= date <= period.end_date:
+                return period
+        return None
+
+    def predict_next_period_start(self):
+            if not self.periods:
+                return None  # No historical data available
+            cycle_lengths = []
+            for i in range(len(self.periods) - 1):
+                cycle_length = (self.periods[i + 1].start_date - self.periods[i].start_date).days
+                cycle_lengths.append(cycle_length)
+            average_cycle_length = sum(cycle_lengths) // len(cycle_lengths)
+            latest_period = self.periods[-1]
+            predicted_start_date = latest_period.start_date + datetime.timedelta(days=average_cycle_length)
+            return predicted_start_date
+
+    def get_cycle_day(self):
+        last_period = self.get_last_period().get_start_date()
+        
+        if last_period:
+            today = datetime.now().date()
+            cycle_day = (today - last_period.date()).days + 1
+            return cycle_day
+        else:
+            return None
+
+    def get_cycle_phase(self):
+        cycle_day = self.get_cycle_day()
+        if cycle_day is None:
+            return "No cycle data available"
+
+        if cycle_day <= self.period_length:
+            return "Menstrual Phase"
+        elif cycle_day <= self.cycle_length:
+            return "Follicular Phase"
+        elif cycle_day <= self.cycle_length + 2:
+            return "Ovulatory Phase"
+        else:
+            return "Luteal Phase"
+
+    def make_comment(self, post, content):
+        comment = Comment(content)
+        post.add_comment(comment)
+        self.comments.append(comment)
+
+    def save_post(self, post):
+        if post not in self.saved_posts:
+            self.saved_posts.append(post)
+
+    def unsave_post(self, post):
+        if post in self.saved_posts:
+            self.saved_posts.remove(post)

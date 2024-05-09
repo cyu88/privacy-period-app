@@ -1,4 +1,19 @@
 class Period:
+    '''
+    Represents a menstrual period.
+
+    Attributes:
+        start_date (datetime): The start date of the period.
+        end_date (datetime): The end date of the period.
+        duration (int): The duration of the period in days.
+        flow_intensity (str): The intensity of menstrual flow (e.g., "light", "moderate", "heavy").
+        symptoms (list): List of symptoms experienced during the period.
+        mood (str): Mood during the period.
+        energy_level (str): Energy level during the period.
+        notes (str): Additional notes or comments about the period.
+        ongoing (bool): Indicates if the period is ongoing.
+    '''
+
     def __init__(self, start_date, end_date=None, flow_intensity=None, symptoms=None, mood=None, energy_level=None, notes=None):
         self.start_date = start_date
         self.end_date = end_date
@@ -17,6 +32,12 @@ class Period:
 
     def get_duration(self):
         return self.duration
+
+    def get_start_date(self):
+        return self.start_date
+
+    def get_end_date(self):
+        return self.end_date
 
     def add_symptom(self, symptom):
         self.symptoms.append(symptom)

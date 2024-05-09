@@ -1,0 +1,35 @@
+from enum import Enum, auto
+
+class Severity(Enum):
+    '''
+    Enum representing the severity levels of symptoms.
+    
+    Attributes:
+        MILD: Indicates mild severity.
+        MODERATE: Indicates moderate severity.
+        SEVERE: Indicates severe severity.
+    '''
+    MILD = auto()
+    MODERATE = auto()
+    SEVERE = auto()
+
+class Symptom(Enum):
+    '''
+    Enum representing various symptoms and their severity levels.
+    
+    Attributes:
+        CRAMPS: Represents cramps with a severity level.
+        HEADACHE: Represents headache with a severity level.
+        NAUSEA: Represents nausea with a severity level.
+        FATIGUE: Represents fatigue with a severity level.
+        MOOD_SWINGS: Represents mood swings with a severity level.
+    '''
+    CRAMPS = (Severity.MILD, "Cramps")
+    HEADACHE = (Severity.MODERATE, "Headache")
+    NAUSEA = (Severity.MILD, "Nausea")
+    FATIGUE = (Severity.SEVERE, "Fatigue")
+    MOOD_SWINGS = (Severity.MODERATE, "Mood Swings")
+
+    def __init__(self, severity, name):
+        self.severity = severity
+        self.name = name

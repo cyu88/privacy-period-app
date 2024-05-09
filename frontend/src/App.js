@@ -1,15 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
 import React from 'react';
+import './App.css';
 import CalendarComponent from './Calendar';
 
 
 function App() {
   return (
     <div>
-      <h1>Welcome to My Basic Page</h1>
-      <p>This is a basic webpage created using React!</p>
-      <CalendarComponent />
+      <div className="welcome-container">
+        <div className="bubble">
+          <p className="welcome">Welcome back! There are</p>
+          <h1 className="App-title">12</h1>
+          <p className="welcome">days until your next period.</p>
+        </div>
+      </div>
+      <div className="calendar-container">
+        <CalendarComponent />
+      </div>
     </div>
   );
 }

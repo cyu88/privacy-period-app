@@ -16,8 +16,8 @@
   
   .react-calendar__navigation {
     font-family: 'Inter', sans-serif;
-    background-color: #c3e1a5; /* Set background color */
-    color: #333; /* Set text color */
+    background-color: #BE97C6; /* Set background color */
+    color: #2E294E; /* Set text color */
   }
 
   .calendar-header {
@@ -34,7 +34,7 @@
 
   .custom-calendar {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 4px solid #BE97C6;
     border-radius: 5px;
   }
 
@@ -42,7 +42,7 @@
   color of today's calendar tile
   */
   .react-calendar__tile--now {
-    background-color: orange; /* Change the background color to orange, or any other color you prefer */
+    background-color: #2E294E; /* Change the background color to orange, or any other color you prefer */
     color: white; /* Change the text color to white for better contrast */
   }
   
@@ -50,6 +50,18 @@
   color of selected calendar tile
   */
   .react-calendar__tile--active {
-    background-color: #176c3d !important;
+    background-color: #BE97C6 !important;
     color: #fff; /* Change the text color to white for better contrast */
   }
+
+  .button {
+    background-color: #8661C1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
